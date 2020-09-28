@@ -1,0 +1,176 @@
+@import "../../baseStyles.scss";
+
+.navbar {
+  height: 8vh;
+  position: fixed;
+  width: 100%;
+  background: rosybrown;
+}
+.navbar-filler{
+  height: 8vh;
+}
+.navbar-content{
+  max-width: 1120px;
+  margin: auto;
+  height: 100%;
+  li>img{
+    height: 50%;
+    width: 50%;
+    min-width: 240px;
+  }
+  ul{
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    list-style-type: none;
+    li:first-of-type{
+      flex-basis: 50%;
+      margin-right: auto;
+      color: black;
+    }
+    .main-link {
+      text-decoration: none;
+      color: dodgerblue;
+      flex-basis: 8%;
+      padding-right: 10px;
+      text-transform: capitalize;
+    }
+  }
+}
+
+
+.navbar-in{
+  animation: navbarIn 0.3s linear forwards;
+}
+
+.navbar-out{
+  animation: navbarOut 0.3s linear forwards;
+}
+
+.sidebar {
+  display: none;
+}
+
+@keyframes navbarIn {
+  from {
+    top:-8vh;
+  }
+  to {
+    top: 0;
+  }
+}
+
+@keyframes navbarOut {
+  from {
+    top: 0;
+  }
+  to {
+    top: -8vh;
+  }
+}
+
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    width: 0;
+  }
+  to {
+    opacity: 1;
+    width: 100vw;
+  }
+}
+@keyframes slideOut {
+  from {
+    opacity: 1;
+    width: 100vw;
+  }
+  to {
+    opacity: 0;
+    width: 0;
+  }
+}
+
+@media all and (min-width: 640px) {
+  .navbar {
+    button {
+      display: none;
+    }
+  }
+}
+
+@media all and (max-width: 640px) {
+  .navbar {
+    .navbar-content{
+      display: flex;
+      justify-content: space-between;
+    }
+    button {
+      display: block;
+      width: 60px;
+      cursor: pointer;
+      outline: none;
+      background: none;
+      border: none;
+    }
+    .main-link {
+      display: none;
+    }
+  }
+
+  .sidebar {
+    height: 100vh;
+    z-index: 1;
+    position: fixed;
+    top: 8vh;
+    right: 0;
+    display: block;
+    overflow: hidden;
+    will-change: opacity, width;
+    background: rgba(0, 0, 0, 0.68);
+  }
+  .sidebar-content {
+    height: 100vh;
+    background: whitesmoke;
+    width: 60%;
+    position: absolute;
+    right: 0px;
+    ul {
+      display: flex;
+      flex-direction: column;
+      li {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+      }
+    }
+  }
+
+  .side-link {
+    text-decoration: none;
+    font-size: 22px;
+    display: block;
+    text-align: center;
+    margin: 10px auto;
+    padding: 10px 0;
+    outline: none;
+    border-bottom: 2px solid rgb(185, 185, 185);
+    color: $primary-color-blue;
+    cursor: pointer;
+    background: none;
+    text-transform: capitalize;
+  }
+
+  .slidein {
+    opacity: 1;
+    animation: slideIn 0.3s forwards;
+    -webkit-animation: slideIn 0.3s forwards;
+  }
+
+  .slideout {
+    animation: slideOut 0.1s forwards;
+    -webkit-animation: slideOut 0.1s forwards;
+  }
+}
